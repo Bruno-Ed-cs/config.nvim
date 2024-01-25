@@ -699,3 +699,19 @@ cmp.setup {
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
+-- Set transparency for the entire Neovim window
+vim.cmd([[ hi Normal guibg=NONE ctermbg=NONE ]])
+vim.cmd([[ hi NonText guibg=NONE ctermbg=NONE ]])
+
+-- Set transparency for the floating windows (popup menus, previews, etc.)
+vim.cmd([[ hi NormalNC guibg=NONE ctermbg=NONE ]])
+
+-- Set transparency for the command-line window
+vim.cmd([[ hi Command guibg=NONE ctermbg=NONE ]])
+
+-- Set transparency for the LSP notifications
+vim.cmd([[ hi LspDiagnosticsDefaultWarning guibg=NONE ctermbg=NONE ]])
+vim.cmd([[ hi LspDiagnosticsDefaultError guibg=NONE ctermbg=NONE ]])
+vim.cmd([[ hi LspDiagnosticsDefaultHint guibg=NONE ctermbg=NONE ]])
+vim.cmd([[ hi LspDiagnosticsDefaultInformation guibg=NONE ctermbg=NONE ]])
