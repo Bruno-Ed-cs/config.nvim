@@ -827,7 +827,7 @@ require('lazy').setup({
           --               -- the current file is changed while the tree is open.
           leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
         },
-        hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
+        hijack_netrw_behavior = "disabled", -- netrw disabled, opening a directory opens neo-tree
         -- in whatever position is specified in window.position
         -- "open_current",-- netrw disabled, opening a directory opens within the
         -- window like netrw would, regardless of window.position
@@ -984,7 +984,11 @@ require('lazy').setup({
     }
 
 
-  }, -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
+  },
+
+  -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
+
+
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
   -- require 'kickstart.plugins.autoformat',
@@ -1256,17 +1260,6 @@ if (not status) then return end
 
 local protocol = require('vim.lsp.protocol')
 
-local on_attach = function(client, bufnr)
-  -- format on save
-  if client.server_capabilities.documentFormattingProvider then
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      group = vim.api.nvim_create_augroup("Format", { clear = true }),
-      buffer = bufnr,
-      callback = function() vim.lsp.buf.formatting_seq_sync() end
-    })
-  end
-end
-
 -- TypeScript
 nvim_lsp.tsserver.setup {
   on_attach = on_attach,
@@ -1374,10 +1367,19 @@ vim.cmd([[ hi LspDiagnosticsDefaultInformation guibg=NONE ctermbg=NONE ]])
 vim.cmd[[ hi NvimTreeNormal guibg=NONE ctermbg=NONE ]]
 vim.cmd[[ hi NvimTreeEndOfBuffer guibg=NONE ctermbg=NONE ]]
 
+-- set the line number color
+vim.cmd(":hi LineNr guifg=#ffffff")
 
+
+-- set rules
 -- Enable line numbers
-vim.cmd('set number')
+vim.opt.number = true
 
 -- Enable case-insensitive search
-vim.cmd('set ignorecase')
-vim.cmd('set smartcase')
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+-- Enable relative line counter
+
+vim.opt.relativenumber = true
+
