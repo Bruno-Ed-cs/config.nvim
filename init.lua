@@ -4,6 +4,7 @@
 ==================== READ THIS BEFORE CONTINUING ====================
 ====================================================================
 
+
 Kickstart.nvim is *not* a distribution.
 
 Kickstart.nvim is a template for your own configuration.
@@ -207,7 +208,7 @@ require('lazy').setup({
         icons_enabled = true,
         theme = 'catppuccin',
         component_separators = '|',
-        section_separators = '',
+        section_separators = { left = '', right = '' },
       },
     },
   },
@@ -985,6 +986,8 @@ require('lazy').setup({
 
 
   },
+
+  { "habamax/vim-godot" },
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
 
