@@ -336,7 +336,7 @@ return {
 	window = { -- see https://github.com/MunifTanjim/nui.nvim/tree/main/lua/nui/popup for
 		-- possible options. These can also be functions that return these options.
 		position = "left", -- left, right, top, bottom, float, current
-		width = 40, -- applies to left and right positions
+		width = 50, -- applies to left and right positions
 		height = 15, -- applies to top and bottom positions
 		auto_expand_width = false, -- expand the window when file exceeds the window width. does not work with position = "float"
 		popup = { -- settings that apply to float position only
@@ -523,7 +523,7 @@ return {
 			--               -- the current file is changed while the tree is open.
 			leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
 		},
-		hijack_netrw_behavior = "disabled", -- netrw disabled, opening a directory opens neo-tree
+		hijack_netrw_behavior = "open_current", -- netrw disabled, opening a directory opens neo-tree
 		-- in whatever position is specified in window.position
 		-- "open_current",-- netrw disabled, opening a directory opens within the
 		-- window like netrw would, regardless of window.position

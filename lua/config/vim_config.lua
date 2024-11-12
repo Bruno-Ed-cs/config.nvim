@@ -6,6 +6,10 @@ vim.g.netrw_browse_split = 0	--when selecting a file it determines if the netrw 
 vim.g.netrw_preview = 1		--preview style
 vim.g.netrw_winsize = 20	--split size
 
+--varible to disable netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 function transparency()
 	-- Set transparency for the entire Neovim window
 	vim.cmd([[ hi Normal guibg=NONE ctermbg=NONE ]])
@@ -31,7 +35,7 @@ function transparency()
 	vim.cmd(":hi LineNr guifg=#ffffff")
 end
 
-local transparent_gui = true
+local transparent_gui = false
 
 if transparent_gui then
 	transparency()
@@ -53,7 +57,8 @@ vim.opt.sidescrolloff = 10		-- same as the above, but for sidescroll
 vim.opt.tabstop = 4			-- size of the tab
 vim.opt.showtabline = 1
 vim.opt.termguicolors = true
+vim.opt.hlsearch = false
 
-
+vim.o.completeopt = 'menuone,noselect,noinsert,popup'
 
 

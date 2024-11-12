@@ -1,3 +1,5 @@
+-- custom action keymaps
+vim.keymap.set("n", "<leader>;", "A;<Esc>j", {noremap = true, silent = true, desc = "Add a ; to the end of the line"})
 
 -- netrw keymaps
 function vesplore()
@@ -22,23 +24,23 @@ vim.keymap.set("n", "<leader>fv", vesplore, { noremap = true, silent = true, des
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
 -- Open compiler
-vim.api.nvim_set_keymap('n', '<F6>', "<cmd>CompilerOpen<cr>", { noremap = true, silent = true })
+vim.keymap.set('n', '<F6>', "<cmd>CompilerOpen<cr>", { noremap = true, silent = true })
 
 -- Redo last selected option
-vim.api.nvim_set_keymap('n', '<S-F6>',
+vim.keymap.set('n', '<S-F6>',
   "<cmd>CompilerStop<cr>" -- (Optional, to dispose all tasks before redo)
   .. "<cmd>CompilerRedo<cr>",
   { noremap = true, silent = true })
 
 -- Toggle compiler results
-vim.api.nvim_set_keymap('n', '<S-F7>', "<cmd>CompilerToggleResults<cr>", { noremap = true, silent = true })
+vim.keymap.set('n', '<S-F7>', "<cmd>CompilerToggleResults<cr>", { noremap = true, silent = true })
 
 
 --Neo-tree mappings
-vim.api.nvim_set_keymap('n', '<leader>xt', ':Neotree toggle<CR>', { noremap = true, silent = true, desc = '[Nt] Toggle File explorer'})
-vim.api.nvim_set_keymap('n', '<leader>xs', ':Neotree show<CR>', { noremap = true, silent = true, desc = '[Nt] Show File explorer'})
-vim.api.nvim_set_keymap('n', '<leader>xf', ':Neotree focus<CR>', { noremap = true, silent = true, desc = '[Nt] Focus File explorer'})
-vim.api.nvim_set_keymap('n', '<leader>xx', ':Neotree position=current<CR>', { noremap = true, silent = true, desc = '[Nt] Expand File explorer'})
+vim.keymap.set('n', '<leader>xt', ':Neotree toggle<CR>', { noremap = true, silent = true, desc = '[Nt] Toggle File explorer'})
+vim.keymap.set('n', '<leader>xs', ':Neotree show<CR>', { noremap = true, silent = true, desc = '[Nt] Show File explorer'})
+vim.keymap.set('n', '<leader>xf', ':Neotree focus<CR>', { noremap = true, silent = true, desc = '[Nt] Focus File explorer'})
+vim.keymap.set('n', '<leader>xx', ':Neotree position=current<CR>', { noremap = true, silent = true, desc = '[Nt] Expand File explorer'})
 
 
 -- telescope keybinds
@@ -70,4 +72,9 @@ vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by 
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
 
+--Tabs keymaps
 
+vim.keymap.set('n', '<Tab>n', ':tabnew<CR>', {noremap = true, silent = true, desc = "[Tabs] create new tab"})
+vim.keymap.set('n', '<Tab>d', ':tabclose<CR>', {noremap = true, silent = true, desc = "[Tabs] delete tab"})
+vim.keymap.set('n', '<Tab>]', ':tabnext<CR>', {noremap = true, silent = true, desc = "[Tabs] goto next tab"})
+vim.keymap.set('n', '<Tab>[', ':tabprevious<CR>', {noremap = true, silent = true, desc = "[Tabs] got previous tab"})
